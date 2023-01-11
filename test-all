@@ -1,11 +1,4 @@
 #!/bin/bash
 
 ./build
-
-for lang in src/*; do
-    if [ ! -d "$lang" ]; then
-        continue
-    fi
-    lang="$(basename "$lang")"
-    ./local-test "$lang"
-done
+./test.js
