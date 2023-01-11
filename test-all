@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# docker build --platform=linux/amd64 -t hellos .
+./build
 
-for lang in $(ls langs); do
-    name="$(echo "$lang" | awk -F. '{print $1}')"
-    ./local-test "$name"
+for lang in src/*; do
+    if [ ! -d "$lang" ]; then
+        continue
+    fi
+    lang="$(basename "$lang")"
+    ./local-test "$lang"
 done

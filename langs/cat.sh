@@ -1,1 +1,0 @@
-cat src/hello.txt
