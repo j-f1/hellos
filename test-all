@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# docker build --platform=linux/amd64 -t hellos .
+
+for lang in $(ls langs); do
+    name="$(echo "$lang" | awk -F. '{print $1}')"
+    ./local-test "$name"
+done
