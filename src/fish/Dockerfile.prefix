@@ -1,2 +1,2 @@
-FROM alpine
-RUN apk add --no-cache fish
+FROM ubuntu
+#[apt install] fish

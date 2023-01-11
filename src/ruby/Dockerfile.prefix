@@ -1,2 +1,2 @@
-FROM alpine
-RUN apk add --no-cache ruby
+FROM ubuntu
+#[apt install] ruby

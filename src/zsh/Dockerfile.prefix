@@ -1,2 +1,2 @@
-FROM alpine
-RUN apk add --no-cache zsh
+FROM ubuntu
+#[apt install] zsh

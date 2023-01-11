@@ -27,8 +27,10 @@ for (const lang of langs) {
       path.join(__dirname, "src", lang, "Dockerfile.prefix"),
       "utf-8"
     ) + "\n";
-  if (dockerfile.includes("alpine"))
-    dockerfile += "RUN apk add --no-cache bash\n";
+  dockerfile = dockerfile.replace(
+    "#[apt install]",
+    "RUN apt-get update --allow-insecure-repositories\nRUN apt-get install -y --allow-unauthenticated"
+  );
   dockerfile += "WORKDIR /home\n";
   dockerfile += `COPY ${lang} /home\n`;
   dockerfile += "COPY test.sh /usr/bin/run-test\n";

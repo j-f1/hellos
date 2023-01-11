@@ -1,1 +1,1 @@
-FROM swift:latest
+FROM swiftarm/swift:latest

@@ -1,2 +1,2 @@
-FROM alpine
-RUN apk add --no-cache nodejs
+FROM ubuntu
+#[apt install] nodejs
