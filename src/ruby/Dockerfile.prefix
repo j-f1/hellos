@@ -1,2 +1,2 @@
-FROM alpine
+FROM --platform=linux/amd64 alpine
 RUN apk add --no-cache ruby
