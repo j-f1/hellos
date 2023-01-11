@@ -15,7 +15,8 @@ fs.writeFileSync(path.join(__dirname, 'docker-compose.yml'), dockerCompose);
 
 for (const lang of langs) {
     let dockerfile = fs.readFileSync(path.join(__dirname, 'src', lang, 'Dockerfile.prefix'), 'utf-8') + "\n";
-    dockerfile += "RUN apk add --no-cache bash\n";
+    if (dockerfile.includes('alpine'))
+        dockerfile += "RUN apk add --no-cache bash\n";
     dockerfile += "WORKDIR /home\n";
     dockerfile += `COPY ${lang} /home\n`;
     dockerfile += "COPY test.sh /usr/bin/run-test\n";
