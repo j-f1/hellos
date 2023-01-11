@@ -6,7 +6,7 @@ total=5
 times=()
 for i in $(seq 1 $total); do
     echo -en "\rRunning test for $lang: $i/$total"
-    result="$(docker run hellos-$lang 2>&1)"
+    result="$(docker run --rm hellos-$lang 2>&1)"
     if [ $? -ne 0 ]; then
         echo -e "\rError running test for $lang:"
         echo "$result"
